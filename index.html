@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 06 - Expense Tracker | Nattanan Khamsom</title>
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap](https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap)" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3880ff;
+            --success-color: #2dd36f;
+            --text-dark: #222428;
+            --text-light: #666;
+            --bg-color: #f4f5f8;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f2f5 0%, #e0e7ff 100%);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 20px rgba(56, 128, 255, 0.3);
+        }
+
+        .icon-box svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        h1 {
+            color: var(--text-dark);
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--success-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #edf2f7;
+        }
+
+        p {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .label {
+            font-size: 0.85rem;
+            color: #a0aec0;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .value {
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #edf2f7;
+            margin: 1.5rem 0;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-box">
+            <svg viewBox="0 0 24 24">
+                <path d="M21,18H3V6H21V18M21,4H3C1.89,4 1,4.89 1,6V18C1,19.1 1.89,20 3,20H21C22.1,20 23,19.1 23,18V6C23,4.89 22.1,4 21,4M14,15H10V13H14V15M18,15H15V13H18V15M18,11H10V9H18V11M8,15H6V9H8V15Z" />
+            </svg>
+        </div>
+
+        <h1>Lab 07: Authentication</h1>
+        <div class="badge">Firebase Connected</div>
+
+        <div class="info-card">
+            <span class="label">ผู้จัดทำ</span>
+            <span class="value">ณัฐนันท์ ขำสม</span>
+            <p style="font-size: 0.9rem; margin-top: 4px;">(Nattanan Khamsom)</p>
+        </div>
+
+        <p class="footer-text">
+            ยินดีต้อนรับสู่โปรเจกต์ติดตามรายรับ-รายจ่าย<br>
+            พัฒนาด้วยเทคโนโลยี <strong>Ionic Vue</strong> และ <strong>Cloud Firestore</strong>
+        </p>
+
+        <hr>
+        
+        <a href="Nattanan Khamsom - lab07-ionic-firebase-authen (1).pdf" class="btn-link">
+            <span>ดูเอกสารประกอบ (PDF)</span>
+            <svg style="width:18px;height:18px;margin-left:5px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M10.7,15.58L12.35,17.23L11.17,18.41L7.5,14.74L11.17,11.07L12.35,12.25L10.7,13.91H16.5V15.58H10.7Z" />
+            </svg>
+        </a>
+    </div>
+</body>
+</html>
